@@ -763,3 +763,59 @@ input{
     background: url("../images/move_top.png") no-repeat 0 -40px;
 }
 
+/********************************************  publish  modal  ********************************************/
+#myModalLable3{
+    color: #8aa3c4;
+    font-weight: 700;
+    line-height: 26px;
+    font-size: 14px;
+}
+.modal-header{
+    color: #8aa3c4;
+    font-weight: 700;
+    padding: 0 0 0 10px;
+    height: 28px;
+    line-height: 26px;
+    font-size: 14px;
+    /*position: relative;*/
+}
+.nobrder{
+    border-bottom: 1px solid #fff;
+}
+/*.W{*/
+    /*width:auto !important;*/
+/*}*/
+/*.tab-tags{*/
+    /*height: 36px;*/
+    /*width: 630px;*/
+    /*!*position: relative;*!*/
+/*}*/
+/*.tab-tags .w-active{*/
+    /*color: #787878;*/
+    /*background-position: 0 -74px;*/
+    /*border-bottom: 1px solid #fff;*/
+/*}*/
+.tab-tags .tb{
+    float: left;
+    height: 35px;
+    line-height: 35px;
+    width: 90px;
+    color: #369;
+    font-weight: 700;
+    font-size: 14px;
+    margin-right: 14px;
+    cursor: pointer;
+    text-align: center;
+    /*background: url("../images/bottom.png") no-repeat 0 0;*/
+    /*position: relative;*/
+    z-index: 2;
+}
+.tags{
+    border-bottom: 1px solid #ccdcef;
+    height: 35px;
+    width:100%;
+    /*position: absolute;*/
+    left:0;
+    top:0;
+}
+

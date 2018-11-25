@@ -25,7 +25,7 @@
             <!--前面两个左边漂移   后面两个右边飘-->
             <a href="#" class="logo"></a>
 
-            <div class="action-menu">
+            <div class="action-menu my-navbar-nav">
                 <a href="#" class="tb active">全部</a>
                 <a href="#" class="tb">42区</a>
                 <a href="#" class="tb ">段子</a>
@@ -46,9 +46,9 @@
             </div>
 
             <!--注册登录-->
-            <div class="action-nav">
-                <a href="#" id="reg-link-a" class="login-btn-a" href="#">注册</a>
-                <a href="#" id="login-link-a" class="login-btn-a" href="#">登录</a>
+            <div class="action-nav my-navbar-nav">
+                <a href="javascript:login()" id="reg-link-a" class="login-btn-a">注册</a>
+                <a href="javascript:login()" id="login-link-a" class="login-btn-a">登录</a>
             </div>
 
             <div class="chat-notice-area"></div>
@@ -60,22 +60,23 @@
             <div class="content-L">
                 <!--最热最新区域-->
                 <div class="top-area" style="margin-bottom: 0px;">
-                    <div class="child-nav">
+                    <div class="child-nav my-navbar-nav">
                         <a href="#" class="hotbtn active icons">最热</a>
                         <a href="#" class="hotbtn ">最新</a>
                         <a href="#" class="hotbtn ">人类发布</a>
                     </div>
 
-                    <div class="sort-nav">
+                    <div class="sort-nav my-navbar-nav">
                         <a href="#" class="active hotbtn">即时排序</a>
                         <a href="#" class="newbtn ">24小时</a>
                         <a href="#" class="newbtn ">3天</a>
                     </div>
 
-                    <a href="#" class="publish-btn" id="publishBtn"  href='#' lang="all">
+                    <button class=" publish-btn " id="publishBtn" onclick="publish()">
                         <span class="ico n1"></span>
-                        <span class="n2">发布</span>
-                    </a>
+                        <span>发布</span>
+                    </button>
+
                 </div>
 
                 <!--几条入热榜   点击查看模块-->
@@ -87,7 +88,7 @@
 
                 <!--内容区域-->
                 <div class="content-list">
-                    <div class="item">
+                    <div class="item my-list-content">
                         <div class="news-pic">
                             <img src="images/dog.jpg" alt="抽屉新热榜">
                         </div>
@@ -151,7 +152,7 @@
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item my-list-content">
                         <div class="news-pic">
                             <img src="images/dog.jpg" alt="抽屉新热榜">
                         </div>
@@ -215,7 +216,7 @@
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item my-list-content">
                         <div class="news-pic">
                             <img src="images/dog.jpg" alt="抽屉新热榜">
                         </div>
@@ -279,7 +280,7 @@
                         </div>
                     </div>
 
-                    <div class="item">
+                    <div class="item my-list-content">
                         <div class="news-pic">
                             <img src="images/dog.jpg" alt="抽屉新热榜">
                         </div>
@@ -482,103 +483,249 @@
         </div>
     </div>
 
-    <div class="module-login-mask">
-        <div class="module-login-container">
-            <div class="box-register" style="padding-left: 350px">
-                <div class="box-login">
-                    <div class="header" style="border-radius: 5px 0 0 0">登录</div>
-                    <div class="tab-box">
-                        <span class="tab-mobilelogin active" style="margin-right: 10px">手机号登录</span>
-                        <span class="tab-idlogin" style="margin-left: 10px">用户名登录</span>
+     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1 myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content clearfix">
+
+                <!--登录页面-->
+                <div class="pull-left">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
+                        <h4 class="modal-title" id="myModalLabel1">登录</h4>
                     </div>
-                    <div class="box-mobilelogin">
-                        <div class="err-msg"></div>
-                        <div>
-                        <select class="region">
-                            <option>中国台湾（+886）</option>
-                            <option>中国（+86）</option>
-                            <option>中国香港（+852）</option>
-                            <option>中国澳门（+853）</option>
-                            <option>美国（+1）</option>
-                        </select>
+
+                    <div class="modal-body my-modal-body">
+                        <ul class="nav nav-pills">
+                            <li role="presentation" class="active"><a href="#">手机号登录</a></li>
+                            <li role="presentation"><a href="#">用户名登录</a></li>
+                        </ul>
+
+                        <!--手机号登录-->
+                        <div class="my-phone-login">
+                            <form>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>中国台湾（+886）</option>
+                                        <option>中国（+86）</option>
+                                        <option>中国香港（+852）</option>
+                                        <option>中国澳门（+853）</option>
+                                        <option>美国（+1）</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputText1" placeholder="手机号">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="密码">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked> <small>一个月内自动登录</small>
+                                    </label>
+                                    <small>&nbsp;&nbsp;&nbsp;&nbsp;忘记密码？</small>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--用户名登录-->
+                        <div class="my-user-login">
+                            <form>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputText2" placeholder="用户名">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="exampleInputPassword2" placeholder="密码">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" checked> <small>一个月内自动登录</small>
+                                    </label>
+                                    <small>&nbsp;&nbsp;&nbsp;&nbsp;忘记密码？</small>
+                                </div>
+                            </form>
+                        </div>
+
                     </div>
-                        <form class="form-mobilelogin" action="#" autocomplete="on">
-                        <div class="pr">
-                            <input id="mobile" class="mobile" type="text" name="mobile" placeholder="手机号" tabindex="1">
-                        </div>
-                        <div class="pr">
-                            <input id="mbpwd" class="mbpwd" type="password" name="mbpwd" placeholder="密码" tabindex="2">
-                        </div>
-                    </form>
-                    </div>
-                    <div class="box-btn">
-                        <div style="position: relative;margin-bottom: 20px">
-                            <span>
-                                <input  class="keeplogin" type="checkbox" value="1" checked="">
-                                一个月内自动登录
-                            </span>
-                            <span class="fgtpwd">
-                                <a href="#">忘记密码？</a>
-                            </span>
-                        </div>
-                        <div>
-                            <div class="btn btn-login pub-icons pub-btn pub-btn-valid">
-                                <span>登录</span>
-                            </div>
-                        </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">登录</button>
                     </div>
                 </div>
-                <div class="header" style="border-radius: 0 5px 0 0;">
-                    <span>注册</span>
-                    <div style="position:absolute;right: 8px;top: 8px;width: 15px;height: 15px;">
-                        <!--注册  旁边的x-->
-                        <div class="btn-close icons dialog-btn-close"></div>
+
+                <!--注册页面-->
+                <div class="pull-right">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel2">注册</h4>
+                    </div>
+
+                    <div class="modal-body my-modal-body">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active"><a href="#">1.填写手机号</a></li>
+                            <li role="presentation"><a href="#">2.填写基本资料</a></li>
+                        </ul>
+
+                        <!--填写手机号-->
+                        <div class="my-phone-register">
+                            <form>
+                                <div class="form-group">
+                                    <select class="form-control">
+                                        <option>中国台湾（+886）</option>
+                                        <option>中国（+86）</option>
+                                        <option>中国香港（+852）</option>
+                                        <option>中国澳门（+853）</option>
+                                        <option>美国（+1）</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <input type="text" class="form-control" id="exampleInputText3" placeholder="手机号">
+                                    <button type="submit" class="btn btn-primary">获取验证码</button>
+                                </div>
+                                <div class="form-group text-right" style="margin-top: -10px;">
+                                    <small>收不到短信？</small>
+                                    <small style="color: #337ab7;">获取语音验证码</small>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" id="exampleInputText4" placeholder="验证码">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" id="exampleInputPassword3" placeholder="密码">
+                                </div>
+                            </form>
+                        </div>
+
+                        <!--填写基本信息-->
+                        <div class="my-info-register">
+                            <form>
+                                <div class="form-group">
+                                     <input type="text" class="form-control" id="exampleInputText5" placeholder="xxx" readonly>
+                                </div>
+                                <div class="form-group">
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked> 女
+                                    </label>
+                                    <label class="radio-inline">
+                                        <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> 男
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <select class="form-control my-country">
+                                        <option value="0">中国</option>
+                                        <option value="1">海外</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-inline">
+                                    <select class="form-control">
+                                        <option>北京</option>
+                                        <option>上海</option>
+                                        <option>广州</option>
+                                        <option>深圳</option>
+                                    </select>
+                                    <select class="form-control">
+                                        <option>西城</option>
+                                        <option>东城</option>
+                                        <option>朝阳</option>
+                                        <option>海淀</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" placeholder="签名档（100个汉字以内）"></textarea>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary my-btn-next" onclick="btnNext();">下一步</button>
+                        <button type="button" class="btn btn-primary my-btn-submit" data-dismiss="modal">提交资料</button>
                     </div>
                 </div>
-                <div class="body-register" style="border-radius: 0 0 5px 0">
-                    <div class="step-box">
-                        <span class="step step-1 step-active">1 填写手机号</span>
-                        <span>></span>
-                        <span class="step step-2">2 填写基本资料</span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel1 myModalLabel2">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content clearfix">
+                <!--发布页面-->
+                <div class="my-publish">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="myModalLable3">分享新发现</h4>
                     </div>
-                    <div class="box-register-mobile">
-                        <div class="err-msg"></div>
-                        <div>
-                            <select class="rgmobileregion">
-                                <option>中国台湾（+886）</option>
-                                <option>中国（+86）</option>
-                                <option>中国香港（+852）</option>
-                                <option>中国澳门（+853）</option>
-                                <option>美国（+1）</option>
-                            </select>
+                    <div class="modal-body my-modal-body tab-tags nobrder W">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active tb H w-active color"><a href="#">链接</a></li>
+                            <li role="presentation" class=" tb H" ><a href="#">文字</a></li>
+                            <li role="presentation" class="tb H"><a href="#">图片</a></li>
+                            <div class="tags"></div>
+                        </ul>
+                        <!--链接-->
+                        <div class="my-link">
+                            <form>
+                                <div class="form-group">
+                                    <lable for="exampleInputUrl">添加链接</lable>
+                                    <input type="text" class="form-control" id="exampleInputUrl" placeholder="http://">
+                                </div>
+                                <div class="form-group">
+                                    <lable for="exampleInputUrl">标题</lable>
+                                    <input type="text" class="form-control" id="exampleInputTitle" >
+                                </div>
+                                <div class="form-group">
+                                    <lable for="exampleInputUrl">添加摘要</lable>
+                                    <input type="text" class="form-control" id="exampleInputTextarea">
+                                </div>
+                                <div class="form-group my-form-a">
+                                    <small>发布到</small>
+                                    <a href="#" class="btn btn-default btn-sm active" role="button">42区</a>
+                                    <a href="#" class="btn btn-default btn-sm " role="button">段子</a>
+                                    <a href="#" class="btn btn-default btn-sm " role="button">图片</a>
+                                    <a href="#" class="btn btn-default btn-sm " role="button">挨踢1024</a>
+                                    <a href="#" class="btn btn-default btn-sm " role="button">你问我答</a>
+                                </div>
+                            </form>
                         </div>
-                        <div class="pr">
-                            <div class="net-vary"></div>
+
+                        <!--文字-->
+                        <div class="my-text">
+                            <form>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" id="exampleInputTextarea1" placeholder="发布段子"></textarea>
+                                </div>
+                                <div class="form-group my-form-a">
+                                    <small>发布到：</small>
+                                    <a href="#" class="btn btn-default btn-sm active" role="button">段子</a>
+                                    <a href="#" class="btn btn-default btn-sm active" role="button">你问我答</a>
+                                </div>
+                            </form>
                         </div>
-                        <div>
-                            <div id="captcha"></div>
+                        <!--图片-->
+                        <div class="my-photo">
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputFile">添加图片</label>
+                                    <input type="file" id="exampleInputFile">
+                                </div>
+                                <div class="form-group">
+                                    <textarea class="form-control" rows="3" id="exampleInputTextarea2" placeholder="发布段子"></textarea>
+                                </div>
+                                <div class="form-group my-form-a">
+                                    <small>发布到：</small>
+                                    <a href="#" class="btn btn-default btn-sm active" role="button">图片</a>
+                                    <a href="#" class="btn btn-default btn-sm" role="button">你问我答</a>
+                                </div>
+                            </form>
                         </div>
-                        <div class="pr">
-                            <input class="rgmobile" type="text" placeholder="手机号" style="width: 120px;margin-right: 6px;">
-                            <div class="btn btn-getcode">获取验证码</div>
-                            <div class="box-voicecode" style="text-align: right;margin-top: 5px">
-                                <span>
-                                收不到短信？
-                                <a class="btn-getvoicecode" href="#">获取语言验证码</a>
-                            </span>
-                            </div>
-                        </div>
-                        <div class="pr">
-                            <input class="rgcode" type="text" placeholder="验证码">
-                        </div>
-                        <div class="pr">
-                            <input class="rgpwd" type="password" placeholder="密码">
-                        </div>
-                        <div>
-                            <div class="btn btn-register pub-icons pub-btn pub-btn-valid">
-                                <span>下一步</span>
-                            </div>
-                        </div>
+
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">清空</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal">发布</button>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -593,4 +740,5 @@
     <!--加载Bootstrap的所有JavaScript插件，我们也可以根据需要只加载单个插件-->
     <script src="./bootstrap-3.3.7/js/bootstrap.min.js"></script>
 </body>
+    <script src="./js/index.js"></script>
 </html>
