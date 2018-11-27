@@ -22,8 +22,82 @@ $(function (){
     // 发布到的切换
     $('.my-form-a a').click(function () {
         $(this).addClass('active').siblings('a').removeClass('active');
-    })
-})
+    });
+
+     //监听页面滚动
+    $(document).scroll(function () {
+        $(document).scrollTop() > 0 ? $('.move-top').show() : $('.move-top').hide();
+    });
+    //回到顶部 点击事件
+    $('.move-top').click(function () {
+        $(document.documentElement).animate({scrollTop:'0'},500)
+    });
+
+    //鼠标移到内容中，显示分享的小图标
+
+    //鼠标移到内容的图片上，将小图片变为大图片
+    $(".pull-right img").each();
+
+     //推荐的点击事件
+    $('.span_click1').each(function (index,ele) {
+        var isFlag1 = true;
+        $(this).click(function () {
+            var count1 = $($('.span_count1')[index]).text();
+            if(isFlag1){
+                $($('.span_count1')[index]).text(Number(count1)+1);
+                $(this).css({'background-color':'red'});
+                $(this).attr('title','取消推荐');
+                isFlag1 = false;
+            }else{
+                $($('.span_count1')[index]).text(Number(count1)-1);
+                $(this).css({'background-color':'white'});
+                $(this).attr('title','推荐');
+                isFlag1 = true;
+            }
+        });
+    });
+
+     //评论的点击事件
+    $('.span_click2').each(function (index,ele) {
+        var isFlag2 = true;
+        $(this).click(function () {
+            console.log($(this).index());
+            if(isFlag2){
+                $($('.my-comment')[index]).show();
+                $(this).css({'background-color':'red'});
+                isFlag2 = false;
+            }else{
+                $($('.my-comment')[index]).hide();
+                $(this).css({'background-color':'white'});
+                isFlag2 = true;
+            }
+        });
+    });
+    //关闭评论框
+    $('.my-comment .close').each(function(index,ele){
+        $(this).click(function () {
+            $($(".my-comment")[index]).hide();
+            $($(".span_click2")[index]).css({'background-color':'red'});
+        })
+    });
+
+    //私藏的点击事件
+    $('.span_click3').each(function (index,ele) {
+        var isFlag3 = true;
+        $(this).click(function () {
+            if(isFlag3){
+                $(this).css({'background-color':'red'});
+                $(this).attr('title','移除私藏');
+                isFlag3 = false;
+            }else{
+                $(this).css({'background-color':'white'});
+                $(this).attr('title','加入私藏');
+                isFlag3 = true;
+            }
+        });
+    });
+
+});
 // 注册登录页面
 function login() {
     $("#myModal").modal(
